@@ -1,5 +1,7 @@
 package com.assignment.junit.binarytree;
 
+import java.util.List;
+
 //TreeTest: test the Tree class, a binary search tree
 public class BinaryTreeTest {
 	public static void main(String[] argv) {
@@ -10,6 +12,9 @@ public class BinaryTreeTest {
 		for (int i = 0; i < persons.length; i++)
 			tree.populateTree(persons[i]);
 		tree.traverseTree();
+		List<String> sortedNodes = tree.getSortedArray();
+		System.out.println(sortedNodes.toString());
+		System.out.println(sortedNodes.toString().compareTo("[Albert, Ashfaque, Bijay, Farhad, Hassan, John, Kerry, Peggy, Shen, Steve, Xio]"));
 		/* get leaf count of the binary tree */
 		System.out.println("\nThe node count of binary tree is : " + tree.countNode());
         System.out.println("\nThe leaf count of the binary tree is : " + tree.countLeaf());

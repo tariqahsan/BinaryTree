@@ -1,5 +1,8 @@
 package com.assignment.junit.binarytree;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Stream;
 
 /**
  * 
@@ -16,6 +19,8 @@ package com.assignment.junit.binarytree;
 public class BinaryTreeApp {
 	private Node<String> root; // hidden root node
 	private int nodeCount = 0;
+	// This ArrayList would contain the sorted String ArrayList
+	private List<String> sortedArray = new ArrayList<String>();
 
 	/**
 	 * We’ll follow these rules starting from the root node for insertion:
@@ -59,19 +64,20 @@ public class BinaryTreeApp {
 		traverseNode(root);
 	}
 
-	// traverseNode: recursive function that does the work
-	private void traverseNode(Node node) {
+	// traverseNode: recursive function that does the work. It will store 
+	public void traverseNode(Node node) {
+	
 		if (node != null) {
 			traverseNode(node.left);
-			System.out.print(node.data + " ");
+			sortedArray.add((String) node.data);
 			traverseNode(node.right);
 		}
-	}
+		
+	}	
 	
 	public int countNode() {
 		return getNodeCount(root);
 	}
-
 	
 	/**
 	 * getNodeCount: recursive function that does the work
@@ -132,4 +138,12 @@ public class BinaryTreeApp {
 		this.nodeCount = nodeCount;
 	}
 
+	public List<String> getSortedArray() {
+		return sortedArray;
+	}
+
+	public void setSortedArray(List<String> sortedArray) {
+		this.sortedArray = sortedArray;
+	}
+    
 }
